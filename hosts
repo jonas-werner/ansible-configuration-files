@@ -1,0 +1,24 @@
+[master]
+server1    baseuri=10.6.28.1
+server2    baseuri=10.6.28.2
+
+[testgroup]
+r640	   baseuri=10.6.28.5
+
+[myhosts:children]
+master
+testgroup
+
+[myhosts:vars]
+# Credentials for OOB controller
+username=root
+password=calvin
+
+
+# Local directory where all results are placed
+rootdir=~/inventory_files
+
+# Shorter name for inventory_hostname.
+# Refers to the OS hostname, not the OOB controller.
+host="{{inventory_hostname}}"
+
